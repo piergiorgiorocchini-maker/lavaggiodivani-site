@@ -1,0 +1,88 @@
+{
+  "_file": "data/tracking.config.json",
+  "_purpose": "Central tracking configuration for LavaggioDivani. Keep IDs here so pages do not need to be edited one by one.",
+  "_status": "Prepared but disabled. Fill IDs and set trackingEnabled true only after consent/banner setup is ready.",
+  "trackingEnabled": false,
+  "debug": false,
+  "site": {
+    "brand": "LavaggioDivani",
+    "baseUrl": "https://www.lavaggiodivani.net",
+    "country": "IT",
+    "language": "it-IT"
+  },
+  "consent": {
+    "consentModeEnabled": true,
+    "defaultState": {
+      "ad_storage": "denied",
+      "ad_user_data": "denied",
+      "ad_personalization": "denied",
+      "analytics_storage": "denied",
+      "functionality_storage": "granted",
+      "security_storage": "granted"
+    },
+    "waitForUpdateMilliseconds": 500,
+    "region": [
+      "AT",
+      "BE",
+      "BG",
+      "HR",
+      "CY",
+      "CZ",
+      "DK",
+      "EE",
+      "FI",
+      "FR",
+      "DE",
+      "GR",
+      "HU",
+      "IE",
+      "IT",
+      "LV",
+      "LT",
+      "LU",
+      "MT",
+      "NL",
+      "PL",
+      "PT",
+      "RO",
+      "SK",
+      "SI",
+      "ES",
+      "SE",
+      "IS",
+      "LI",
+      "NO"
+    ]
+  },
+  "googleTagManager": {
+    "enabled": false,
+    "containerId": ""
+  },
+  "googleAnalytics4": {
+    "enabled": false,
+    "measurementId": ""
+  },
+  "googleAds": {
+    "enabled": false,
+    "conversionId": "",
+    "conversionLabel": ""
+  },
+  "metaPixel": {
+    "enabled": false,
+    "pixelId": ""
+  },
+  "events": {
+    "trackPhoneClicks": true,
+    "trackWhatsappClicks": true,
+    "trackEmailClicks": true,
+    "phoneEventName": "phone_click",
+    "whatsappEventName": "whatsapp_click",
+    "emailEventName": "email_click"
+  },
+  "notesForPier": [
+    "Preferred setup: use Google Tag Manager containerId and manage GA4, Google Ads and Meta Pixel inside GTM.",
+    "Keep trackingEnabled false until the cookie/consent banner is ready.",
+    "When IDs change, edit only this file and keep every HTML page untouched.",
+    "Use DNS verification for Google Search Console where possible, not an HTML tag."
+  ]
+}

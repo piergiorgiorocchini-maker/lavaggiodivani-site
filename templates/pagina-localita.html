@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{seo.title}}</title>
+  <meta name="description" content="{{seo.description}}">
+  <meta name="author" content="{{site.brand}}">
+  <meta name="geo.region" content="{{geo.regionCode}}">
+  <meta name="geo.placename" content="{{locality.displayName}}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="{{seo.canonicalUrl}}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{seo.ogTitle}}">
+  <meta property="og:description" content="{{seo.ogDescription}}">
+  <meta property="og:url" content="{{seo.canonicalUrl}}">
+  <meta property="og:image" content="{{images.hero.absoluteUrl}}">
+  <meta property="og:locale" content="it_IT">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{seo.ogTitle}}">
+  <meta name="twitter:description" content="{{seo.ogDescription}}">
+  <meta name="twitter:image" content="{{images.hero.absoluteUrl}}">
+
+  <link rel="preload" href="{{images.hero.path}}" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="/assets/css/cleaning-landing.css">
+
+  <script type="application/ld+json">
+  {{jsonLd.localBusiness}}
+  </script>
+
+  <script type="application/ld+json">
+  {{jsonLd.webPage}}
+  </script>
+
+  <script type="application/ld+json">
+  {{jsonLd.faqPage}}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
+
+  <header class="site-header" aria-label="Intestazione sito">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="{{site.brand}} home">
+        <span class="brand-mark" aria-hidden="true">LD</span>
+        <span class="brand-text">{{site.brand}}</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigazione principale">
+        <a href="#servizi">Servizi</a>
+        <a href="#vicino-a-te">Vicino a te</a>
+        <a href="#come-funziona">Come funziona</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="header-call" href="tel:{{site.phoneHref}}">Chiama ora!</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-pad">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Preventivo gratuito anche via WhatsApp · {{locality.displayName}}</p>
+          <h1>{{content.h1}}</h1>
+          <p class="hero-lead">{{content.heroLead}}</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:{{site.phoneHref}}">Chiama Adesso!</a>
+            <a class="btn btn-secondary" href="{{site.whatsappUrl}}" target="_blank" rel="noopener" style="background:#25D366;color:#FFFFFF;border-color:#25D366;box-shadow:0 14px 32px rgba(37,211,102,0.28);">Scrivi su WhatsApp</a>
+          </div>
+          <p class="cta-note">Ti risponderà {{site.ownerName}}: puoi inviare foto del divano, materasso, tappeto o tessuto da trattare e ricevere un preventivo gratuito e personalizzato.</p>
+          <ul class="trust-list" aria-label="Punti di forza del servizio">
+            <li>Intervento a domicilio a {{locality.displayName}}</li>
+            <li>Preventivo gratuito da foto</li>
+            <li>Smacchiante</li>
+            <li>Igienizzante</li>
+            <li>Supporto anti-acaro</li>
+          </ul>
+        </div>
+        <div class="hero-media">
+          <picture>
+            <source srcset="{{images.hero.path}}" type="image/webp">
+            <img src="{{images.hero.path}}" width="720" height="560" alt="{{images.hero.alt}}" title="{{images.hero.title}}" fetchpriority="high">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Riepilogo rapido">
+      <div class="container proof-grid">
+        <div><strong>Zona</strong><span>{{locality.displayName}}</span></div>
+        <div><strong>Servizio</strong><span>A domicilio</span></div>
+        <div><strong>Contatto</strong><span>Chiama o manda foto su WhatsApp</span></div>
+      </div>
+    </section>
+
+    <section id="servizi" class="section-pad services-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Cosa puliamo</p>
+          <h2>{{content.servicesTitle}}</h2>
+          <p>{{content.servicesIntro}}</p>
+        </div>
+        <div class="cards-grid">
+          {{components.serviceCards}}
+        </div>
+      </div>
+    </section>
+
+    <section id="come-funziona" class="section-pad process-section">
+      <div class="container two-col">
+        <div class="section-heading align-left">
+          <p class="eyebrow">Come funziona</p>
+          <h2>Chiami, scrivi su WhatsApp o mandi le foto</h2>
+          <p>{{content.processIntro}}</p>
+        </div>
+        <div class="steps">
+          {{components.steps}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad benefits-section" aria-label="Sporco estratto da divani e materassi">
+      <div class="container two-col">
+        <div class="section-heading align-left">
+          <p class="eyebrow">Quello che non vedi</p>
+          <h2>Ecco cosa possiamo estrarre da divani e materassi</h2>
+          <p>{{content.extractionParagraph1}}</p>
+          <p>{{content.extractionParagraph2}}</p>
+          <p><strong>{{content.extractionQuestion}}</strong></p>
+          <div class="hero-actions" style="justify-content:center;margin-top:24px;">
+            <a class="btn btn-primary" href="tel:{{site.phoneHref}}">Chiama ora</a>
+          </div>
+          <p class="cta-note" style="text-align:center;margin-top:14px;">Ti risponderà {{site.ownerName}} per un preventivo gratuito e personalizzato.</p>
+        </div>
+        <div class="hero-media">
+          <picture>
+            <source srcset="{{images.extraction.path}}" type="image/webp">
+            <img src="{{images.extraction.path}}" width="520" height="780" loading="lazy" alt="{{images.extraction.alt}}" title="{{images.extraction.title}}">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section id="vicino-a-te" class="section-pad zones-section">
+      <div class="container two-col">
+        <div class="section-heading align-left">
+          <p class="eyebrow">Zone vicine</p>
+          <h2>Lavaggio divani vicino a {{locality.displayName}}</h2>
+          <p>{{content.nearbyIntro}}</p>
+        </div>
+        <div class="zone-box">
+          <ul class="zone-list">
+            <li><a href="{{hub.url}}" style="display:block;color:inherit;text-decoration:none;">Torna all’area {{hub.displayName}}</a></li>
+            {{components.nearbyLinks}}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section-pad faq-section">
+      <div class="container faq-container">
+        <div class="section-heading">
+          <p class="eyebrow">Domande frequenti</p>
+          <h2>Risposte rapide prima di chiamare</h2>
+        </div>
+        <div class="faq-list">
+          {{components.faq}}
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta section-pad">
+      <div class="container final-cta-box">
+        <p class="eyebrow">Preventivo gratuito</p>
+        <h2>{{content.finalCtaTitle}}</h2>
+        <p>{{content.finalCtaText}}</p>
+        <a class="btn btn-primary" href="tel:{{site.phoneHref}}">Chiama ora</a>
+        <a class="btn btn-secondary" href="{{site.whatsappUrl}}" target="_blank" rel="noopener" style="background:#25D366;color:#FFFFFF;border-color:#25D366;box-shadow:0 14px 32px rgba(37,211,102,0.28);">Scrivi su WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="/" aria-label="{{site.brand}} home">
+          <span class="brand-mark" aria-hidden="true">LD</span>
+          <span class="brand-text">{{site.brand}}</span>
+        </a>
+        <p>{{site.footerDescription}}</p>
+      </div>
+      <div>
+        <h2>Contatti</h2>
+        <p><a href="tel:{{site.phoneHref}}">{{site.phoneDisplay}}</a></p>
+        <p><a href="{{site.whatsappUrl}}" target="_blank" rel="noopener">WhatsApp: {{site.phoneDisplay}}</a></p>
+        <p><a href="mailto:{{site.email}}">{{site.email}}</a></p>
+        <p>P.IVA {{site.vatId}}</p>
+      </div>
+      <div>
+        <h2>Informazioni</h2>
+        <ul>
+          <li><a href="/pages/legal/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/pages/legal/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/pages/legal/termini-condizioni.html">Termini e condizioni</a></li>
+          <li><a href="/pages/legal/contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> {{site.brand}}. Tutti i diritti riservati.</p>
+      <p>Powered by <a href="{{site.poweredByUrl}}" target="_blank" rel="noopener">{{site.poweredByName}}</a></p>
+    </div>
+  </footer>
+
+  <div class="mobile-call-bar" aria-label="Chiamata rapida mobile">
+    <span>Chiama ora o invia foto su WhatsApp</span>
+    <a href="tel:{{site.phoneHref}}">Chiama ora</a>
+  </div>
+
+  <script src="/assets/js/tracking.js" defer></script>
+  <script src="/assets/js/cookie-consent.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

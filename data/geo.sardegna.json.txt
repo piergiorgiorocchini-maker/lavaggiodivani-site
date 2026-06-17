@@ -1,0 +1,774 @@
+{
+  "_schema": "LocalSeoGeoRegion.v1",
+  "_file": "data/geo.sardegna.json",
+  "_status": "starter-production",
+  "_purpose": "Reusable geography engine for local SEO page generation. Service-specific files should reference this file instead of duplicating geography.",
+  "_lastUpdated": "2026-06-16",
+  "_dataPolicy": {
+    "principle": "Keep geography separate from services. A cleaning, dental, legal, roofing, beauty or other local-service site can reuse this same file.",
+    "officialAreas": "Administrative layer based on current Sardegna province/città metropolitana structure.",
+    "commercialSeoHubs": "Search-intent layer. These hubs may use common commercial language even when it does not exactly match the official administrative structure.",
+    "municipalities": "Priority municipalities only in this starter file. Add full 377-comune registry later if needed.",
+    "doNotUseLegacyFile": "data/locations.json is retired and must not be used for generation."
+  },
+  "region": {
+    "name": "Sardegna",
+    "slug": "sardegna",
+    "country": "Italia",
+    "countryCode": "IT",
+    "language": "it-IT",
+    "geoRegion": "IT-88",
+    "istatRegionCode": "20"
+  },
+  "officialAdministrativeAreas": [
+    {
+      "id": "cm-cagliari",
+      "type": "citta_metropolitana",
+      "officialName": "Città Metropolitana di Cagliari",
+      "displayName": "Cagliari e area metropolitana",
+      "slug": "cagliari",
+      "istatAreaCode": "318",
+      "legacyOrSourceAreaCodes": [
+        "118",
+        "292"
+      ],
+      "capitalOrMainCities": [
+        "Cagliari"
+      ],
+      "municipalityCount": 70,
+      "notes": "Area ufficiale aggiornata; usare anche come hub commerciale principale per Sud Sardegna urbano."
+    },
+    {
+      "id": "cm-sassari",
+      "type": "citta_metropolitana",
+      "officialName": "Città Metropolitana di Sassari",
+      "displayName": "Sassari e Nord-Ovest Sardegna",
+      "slug": "sassari",
+      "istatAreaCode": "312",
+      "legacyOrSourceAreaCodes": [
+        "112"
+      ],
+      "capitalOrMainCities": [
+        "Sassari",
+        "Alghero"
+      ],
+      "municipalityCount": 66,
+      "notes": "Hub commerciale naturale per Sassari, Alghero e Nord-Ovest."
+    },
+    {
+      "id": "prov-gallura-nord-est",
+      "type": "provincia",
+      "officialName": "Provincia della Gallura Nord-Est Sardegna",
+      "displayName": "Gallura e Nord-Est Sardegna",
+      "slug": "gallura-nord-est-sardegna",
+      "istatAreaCode": "113",
+      "legacyOrSourceAreaCodes": [
+        "112"
+      ],
+      "capitalOrMainCities": [
+        "Olbia",
+        "Tempio Pausania"
+      ],
+      "municipalityCount": 26,
+      "notes": "Per SEO usare spesso anche hub Olbia-Gallura."
+    },
+    {
+      "id": "prov-nuoro",
+      "type": "provincia",
+      "officialName": "Provincia di Nuoro",
+      "displayName": "Nuoro e Barbagia",
+      "slug": "nuoro",
+      "istatAreaCode": "114",
+      "legacyOrSourceAreaCodes": [
+        "091"
+      ],
+      "capitalOrMainCities": [
+        "Nuoro"
+      ],
+      "municipalityCount": 53,
+      "notes": "Hub utile per Nuoro, Barbagia e centro Sardegna."
+    },
+    {
+      "id": "prov-oristano",
+      "type": "provincia",
+      "officialName": "Provincia di Oristano",
+      "displayName": "Oristano e provincia",
+      "slug": "oristano",
+      "istatAreaCode": "115",
+      "legacyOrSourceAreaCodes": [
+        "095"
+      ],
+      "capitalOrMainCities": [
+        "Oristano"
+      ],
+      "municipalityCount": 87,
+      "notes": "Hub naturale per Oristano, Sinis, Guilcier, Marmilla oristanese."
+    },
+    {
+      "id": "prov-ogliastra",
+      "type": "provincia",
+      "officialName": "Provincia dell'Ogliastra",
+      "displayName": "Ogliastra",
+      "slug": "ogliastra",
+      "istatAreaCode": "116",
+      "legacyOrSourceAreaCodes": [
+        "091"
+      ],
+      "capitalOrMainCities": [
+        "Lanusei",
+        "Tortolì"
+      ],
+      "municipalityCount": 23,
+      "notes": "Hub utile per Tortolì, Lanusei e costa centro-orientale."
+    },
+    {
+      "id": "prov-medio-campidano",
+      "type": "provincia",
+      "officialName": "Provincia del Medio Campidano",
+      "displayName": "Medio Campidano",
+      "slug": "medio-campidano",
+      "istatAreaCode": "117",
+      "legacyOrSourceAreaCodes": [
+        "111"
+      ],
+      "capitalOrMainCities": [
+        "Sanluri",
+        "Villacidro"
+      ],
+      "municipalityCount": 28,
+      "notes": "Hub commerciale per Campidano interno; non confondere con la vecchia Provincia del Sud Sardegna."
+    },
+    {
+      "id": "prov-sulcis-iglesiente",
+      "type": "provincia",
+      "officialName": "Provincia del Sulcis Iglesiente",
+      "displayName": "Sulcis Iglesiente",
+      "slug": "sulcis-iglesiente",
+      "istatAreaCode": "119",
+      "legacyOrSourceAreaCodes": [
+        "111"
+      ],
+      "capitalOrMainCities": [
+        "Carbonia",
+        "Iglesias"
+      ],
+      "municipalityCount": 24,
+      "notes": "Hub utile per Sulcis, Iglesiente e area sud-occidentale."
+    }
+  ],
+  "commercialSeoHubs": [
+    {
+      "id": "hub-cagliari",
+      "hubType": "provincial_or_metropolitan",
+      "name": "Cagliari",
+      "slug": "cagliari",
+      "urlSegmentPattern": "{service-slug}-cagliari",
+      "displayTitlePattern": "{Service Name} a Cagliari e provincia",
+      "h1Pattern": "{Service Name} a domicilio a Cagliari e provincia",
+      "officialAreaIds": [
+        "cm-cagliari"
+      ],
+      "priority": 100,
+      "intentNotes": "Primo hub da generare. Include Cagliari città, hinterland e comuni vicini con forte domanda locale."
+    },
+    {
+      "id": "hub-sassari",
+      "hubType": "provincial_or_metropolitan",
+      "name": "Sassari",
+      "slug": "sassari",
+      "urlSegmentPattern": "{service-slug}-sassari",
+      "displayTitlePattern": "{Service Name} a Sassari e provincia",
+      "h1Pattern": "{Service Name} a domicilio a Sassari e provincia",
+      "officialAreaIds": [
+        "cm-sassari"
+      ],
+      "priority": 90,
+      "intentNotes": "Hub Nord-Ovest; può includere sotto-cluster Alghero."
+    },
+    {
+      "id": "hub-olbia-gallura",
+      "hubType": "commercial_area",
+      "name": "Olbia e Gallura",
+      "slug": "olbia-gallura",
+      "urlSegmentPattern": "{service-slug}-olbia-gallura",
+      "displayTitlePattern": "{Service Name} a Olbia e Gallura",
+      "h1Pattern": "{Service Name} a domicilio a Olbia e in Gallura",
+      "officialAreaIds": [
+        "prov-gallura-nord-est"
+      ],
+      "priority": 88,
+      "intentNotes": "Usare Olbia-Gallura per maggiore chiarezza commerciale rispetto al solo nome ufficiale."
+    },
+    {
+      "id": "hub-oristano",
+      "hubType": "provincial",
+      "name": "Oristano",
+      "slug": "oristano",
+      "urlSegmentPattern": "{service-slug}-oristano",
+      "displayTitlePattern": "{Service Name} a Oristano e provincia",
+      "h1Pattern": "{Service Name} a domicilio a Oristano e provincia",
+      "officialAreaIds": [
+        "prov-oristano"
+      ],
+      "priority": 80,
+      "intentNotes": "Hub per Oristano e costa centro-occidentale."
+    },
+    {
+      "id": "hub-nuoro",
+      "hubType": "provincial",
+      "name": "Nuoro",
+      "slug": "nuoro",
+      "urlSegmentPattern": "{service-slug}-nuoro",
+      "displayTitlePattern": "{Service Name} a Nuoro e provincia",
+      "h1Pattern": "{Service Name} a domicilio a Nuoro e provincia",
+      "officialAreaIds": [
+        "prov-nuoro"
+      ],
+      "priority": 78,
+      "intentNotes": "Hub centro Sardegna."
+    },
+    {
+      "id": "hub-ogliastra",
+      "hubType": "provincial",
+      "name": "Ogliastra",
+      "slug": "ogliastra",
+      "urlSegmentPattern": "{service-slug}-ogliastra",
+      "displayTitlePattern": "{Service Name} in Ogliastra",
+      "h1Pattern": "{Service Name} a domicilio in Ogliastra",
+      "officialAreaIds": [
+        "prov-ogliastra"
+      ],
+      "priority": 70,
+      "intentNotes": "Hub dedicato a Tortolì, Lanusei e costa ogliastrina."
+    },
+    {
+      "id": "hub-sulcis-iglesiente",
+      "hubType": "provincial",
+      "name": "Sulcis Iglesiente",
+      "slug": "sulcis-iglesiente",
+      "urlSegmentPattern": "{service-slug}-sulcis-iglesiente",
+      "displayTitlePattern": "{Service Name} nel Sulcis Iglesiente",
+      "h1Pattern": "{Service Name} a domicilio nel Sulcis Iglesiente",
+      "officialAreaIds": [
+        "prov-sulcis-iglesiente"
+      ],
+      "priority": 68,
+      "intentNotes": "Hub sud-ovest: Carbonia, Iglesias, Gonnesa, Sant'Antioco, Carloforte."
+    },
+    {
+      "id": "hub-medio-campidano",
+      "hubType": "provincial",
+      "name": "Medio Campidano",
+      "slug": "medio-campidano",
+      "urlSegmentPattern": "{service-slug}-medio-campidano",
+      "displayTitlePattern": "{Service Name} nel Medio Campidano",
+      "h1Pattern": "{Service Name} a domicilio nel Medio Campidano",
+      "officialAreaIds": [
+        "prov-medio-campidano"
+      ],
+      "priority": 65,
+      "intentNotes": "Hub per Sanluri, Villacidro e Campidano interno."
+    },
+    {
+      "id": "hub-sud-sardegna-commerciale",
+      "hubType": "legacy_commercial_area",
+      "name": "Sud Sardegna",
+      "slug": "sud-sardegna",
+      "urlSegmentPattern": "{service-slug}-sud-sardegna",
+      "displayTitlePattern": "{Service Name} nel Sud Sardegna",
+      "h1Pattern": "{Service Name} a domicilio nel Sud Sardegna",
+      "officialAreaIds": [
+        "cm-cagliari",
+        "prov-medio-campidano",
+        "prov-sulcis-iglesiente"
+      ],
+      "priority": 60,
+      "intentNotes": "Usare solo come hub SEO/commerciale, non come provincia ufficiale aggiornata."
+    }
+  ],
+  "pageGenerationRules": {
+    "regionalHome": {
+      "url": "/",
+      "titlePattern": "{Service Name} a domicilio in Sardegna | {Brand}",
+      "h1Pattern": "{Service Name} a domicilio in Sardegna"
+    },
+    "hubPage": {
+      "urlPattern": "/{service-slug}-{hub-slug}/",
+      "titlePattern": "{Service Name} a {hub-name} | {Brand}",
+      "h1Pattern": "{Service Name} a domicilio a {hub-name}",
+      "canonicalPattern": "https://www.{domain}/{service-slug}-{hub-slug}/"
+    },
+    "localityPage": {
+      "urlPattern": "/{service-slug}-a-domicilio-{municipality-slug}/",
+      "titlePattern": "{Service Name} a domicilio a {municipality-name} | {Brand}",
+      "h1Pattern": "{Service Name} a domicilio a {municipality-name}",
+      "canonicalPattern": "https://www.{domain}/{service-slug}-a-domicilio-{municipality-slug}/"
+    },
+    "slugRules": {
+      "lowercase": true,
+      "removeAccents": true,
+      "apostrophes": "remove",
+      "spaces": "hyphen",
+      "specialChars": "hyphen",
+      "maxRepeatedHyphens": 1
+    }
+  },
+  "priorityMunicipalities": [
+    {
+      "name": "Cagliari",
+      "slug": "cagliari",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 100,
+      "tags": [
+        "area metropolitana",
+        "capoluogo"
+      ],
+      "aliases": [
+        "Cagliari"
+      ],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-cagliari/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Cagliari"
+    },
+    {
+      "name": "Quartu Sant'Elena",
+      "slug": "quartu-sant-elena",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 96,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [
+        "Quartu"
+      ],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-quartu-sant-elena/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Quartu Sant'Elena"
+    },
+    {
+      "name": "Selargius",
+      "slug": "selargius",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 95,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-selargius/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Selargius"
+    },
+    {
+      "name": "Monserrato",
+      "slug": "monserrato",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 92,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-monserrato/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Monserrato"
+    },
+    {
+      "name": "Sestu",
+      "slug": "sestu",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 90,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-sestu/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Sestu"
+    },
+    {
+      "name": "Assemini",
+      "slug": "assemini",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 89,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-assemini/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Assemini"
+    },
+    {
+      "name": "Elmas",
+      "slug": "elmas",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 86,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-elmas/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Elmas"
+    },
+    {
+      "name": "Capoterra",
+      "slug": "capoterra",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 84,
+      "tags": [
+        "area cagliaritana"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-capoterra/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Capoterra"
+    },
+    {
+      "name": "Quartucciu",
+      "slug": "quartucciu",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 83,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-quartucciu/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Quartucciu"
+    },
+    {
+      "name": "Settimo San Pietro",
+      "slug": "settimo-san-pietro",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 80,
+      "tags": [
+        "hinterland cagliaritano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-settimo-san-pietro/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Settimo San Pietro"
+    },
+    {
+      "name": "Sinnai",
+      "slug": "sinnai",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 79,
+      "tags": [
+        "area cagliaritana"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-sinnai/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Sinnai"
+    },
+    {
+      "name": "Maracalagonis",
+      "slug": "maracalagonis",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 76,
+      "tags": [
+        "area cagliaritana"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-maracalagonis/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Maracalagonis"
+    },
+    {
+      "name": "Decimomannu",
+      "slug": "decimomannu",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 75,
+      "tags": [
+        "area cagliaritana"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-decimomannu/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Decimomannu"
+    },
+    {
+      "name": "Uta",
+      "slug": "uta",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 72,
+      "tags": [
+        "area cagliaritana"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-uta/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Uta"
+    },
+    {
+      "name": "Pula",
+      "slug": "pula",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 70,
+      "tags": [
+        "costa sud",
+        "turismo"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-pula/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Pula"
+    },
+    {
+      "name": "Villa San Pietro",
+      "slug": "villa-san-pietro",
+      "officialAreaId": "cm-cagliari",
+      "primaryHubId": "hub-cagliari",
+      "priority": 68,
+      "tags": [
+        "costa sud"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-villa-san-pietro/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Villa San Pietro"
+    },
+    {
+      "name": "Sassari",
+      "slug": "sassari",
+      "officialAreaId": "cm-sassari",
+      "primaryHubId": "hub-sassari",
+      "priority": 94,
+      "tags": [
+        "capoluogo",
+        "nord ovest"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-sassari/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Sassari"
+    },
+    {
+      "name": "Alghero",
+      "slug": "alghero",
+      "officialAreaId": "cm-sassari",
+      "primaryHubId": "hub-sassari",
+      "priority": 88,
+      "tags": [
+        "nord ovest",
+        "turismo"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-alghero/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Alghero"
+    },
+    {
+      "name": "Olbia",
+      "slug": "olbia",
+      "officialAreaId": "prov-gallura-nord-est",
+      "primaryHubId": "hub-olbia-gallura",
+      "priority": 92,
+      "tags": [
+        "gallura",
+        "turismo"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-olbia/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Olbia"
+    },
+    {
+      "name": "Arzachena",
+      "slug": "arzachena",
+      "officialAreaId": "prov-gallura-nord-est",
+      "primaryHubId": "hub-olbia-gallura",
+      "priority": 82,
+      "tags": [
+        "gallura",
+        "turismo"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-arzachena/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Arzachena"
+    },
+    {
+      "name": "Tempio Pausania",
+      "slug": "tempio-pausania",
+      "officialAreaId": "prov-gallura-nord-est",
+      "primaryHubId": "hub-olbia-gallura",
+      "priority": 78,
+      "tags": [
+        "alta gallura"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-tempio-pausania/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Tempio Pausania"
+    },
+    {
+      "name": "Oristano",
+      "slug": "oristano",
+      "officialAreaId": "prov-oristano",
+      "primaryHubId": "hub-oristano",
+      "priority": 86,
+      "tags": [
+        "capoluogo"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-oristano/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Oristano"
+    },
+    {
+      "name": "Nuoro",
+      "slug": "nuoro",
+      "officialAreaId": "prov-nuoro",
+      "primaryHubId": "hub-nuoro",
+      "priority": 84,
+      "tags": [
+        "capoluogo",
+        "barbagia"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-nuoro/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Nuoro"
+    },
+    {
+      "name": "Tortolì",
+      "slug": "tortoli",
+      "officialAreaId": "prov-ogliastra",
+      "primaryHubId": "hub-ogliastra",
+      "priority": 80,
+      "tags": [
+        "ogliastra",
+        "costa"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-tortoli/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Tortolì"
+    },
+    {
+      "name": "Lanusei",
+      "slug": "lanusei",
+      "officialAreaId": "prov-ogliastra",
+      "primaryHubId": "hub-ogliastra",
+      "priority": 74,
+      "tags": [
+        "ogliastra"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-lanusei/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Lanusei"
+    },
+    {
+      "name": "Carbonia",
+      "slug": "carbonia",
+      "officialAreaId": "prov-sulcis-iglesiente",
+      "primaryHubId": "hub-sulcis-iglesiente",
+      "priority": 78,
+      "tags": [
+        "sulcis"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-carbonia/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Carbonia"
+    },
+    {
+      "name": "Iglesias",
+      "slug": "iglesias",
+      "officialAreaId": "prov-sulcis-iglesiente",
+      "primaryHubId": "hub-sulcis-iglesiente",
+      "priority": 78,
+      "tags": [
+        "iglesiente"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-iglesias/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Iglesias"
+    },
+    {
+      "name": "Gonnesa",
+      "slug": "gonnesa",
+      "officialAreaId": "prov-sulcis-iglesiente",
+      "primaryHubId": "hub-sulcis-iglesiente",
+      "priority": 74,
+      "tags": [
+        "sulcis",
+        "base operativa"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-gonnesa/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Gonnesa"
+    },
+    {
+      "name": "Sant'Antioco",
+      "slug": "sant-antioco",
+      "officialAreaId": "prov-sulcis-iglesiente",
+      "primaryHubId": "hub-sulcis-iglesiente",
+      "priority": 72,
+      "tags": [
+        "sulcis",
+        "turismo"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-sant-antioco/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Sant'Antioco"
+    },
+    {
+      "name": "Carloforte",
+      "slug": "carloforte",
+      "officialAreaId": "prov-sulcis-iglesiente",
+      "primaryHubId": "hub-sulcis-iglesiente",
+      "priority": 70,
+      "tags": [
+        "sulcis",
+        "isola",
+        "turismo"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-carloforte/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Carloforte"
+    },
+    {
+      "name": "Sanluri",
+      "slug": "sanluri",
+      "officialAreaId": "prov-medio-campidano",
+      "primaryHubId": "hub-medio-campidano",
+      "priority": 76,
+      "tags": [
+        "medio campidano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-sanluri/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Sanluri"
+    },
+    {
+      "name": "Villacidro",
+      "slug": "villacidro",
+      "officialAreaId": "prov-medio-campidano",
+      "primaryHubId": "hub-medio-campidano",
+      "priority": 76,
+      "tags": [
+        "medio campidano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-villacidro/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Villacidro"
+    },
+    {
+      "name": "Guspini",
+      "slug": "guspini",
+      "officialAreaId": "prov-medio-campidano",
+      "primaryHubId": "hub-medio-campidano",
+      "priority": 72,
+      "tags": [
+        "medio campidano"
+      ],
+      "aliases": [],
+      "localPageUrlPattern": "/{service-slug}-a-domicilio-guspini/",
+      "defaultAnchorPattern": "{service-name-lowercase} a domicilio a Guspini"
+    }
+  ],
+  "sourceNotes": {
+    "officialAdministrativeAreas": [
+      "Regione Sardegna Autonomie: province e città metropolitane, counts and current institutional structure.",
+      "ISTAT: new statistical codes for Sardegna territorial units.",
+      "Regione Sardegna Autonomie news: articulation into Città metropolitane di Cagliari e Sassari and Province di Nuoro, Oristano, Gallura Nord-Est Sardegna, Ogliastra, Sulcis Iglesiente e Medio Campidano."
+    ],
+    "municipalities": [
+      "Starter priority list for SEO production, not a complete 377-comune registry.",
+      "Before mass generation, extend this section from official SITUAS/Regione dataset."
+    ]
+  }
+}
