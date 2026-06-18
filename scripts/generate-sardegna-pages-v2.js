@@ -33,13 +33,23 @@ const HUB_SETTINGS = {
     outputSlug: 'cagliari',
     label: 'Cagliari e dintorni',
     metaPlace: 'Cagliari',
+    titlePlace: 'Cagliari',
     locative: 'a Cagliari e dintorni',
     zoneText: 'Operiamo a domicilio a Cagliari e nei comuni vicini. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
+  },
+  'hub-costa-smeralda': {
+    outputSlug: 'costa-smeralda',
+    label: 'Costa Smeralda',
+    metaPlace: 'Costa Smeralda',
+    titlePlace: 'Costa Smeralda',
+    locative: 'in Costa Smeralda',
+    zoneText: 'Operiamo a domicilio in Costa Smeralda e nelle principali località turistiche della zona. Se la tua località non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
   'hub-sassari': {
     outputSlug: 'sassari',
     label: 'Sassari e provincia',
     metaPlace: 'Sassari',
+    titlePlace: 'Sassari',
     locative: 'a Sassari e provincia',
     zoneText: 'Operiamo a domicilio a Sassari e nelle principali località della provincia. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
@@ -47,6 +57,7 @@ const HUB_SETTINGS = {
     outputSlug: 'olbia',
     label: 'Olbia e Gallura',
     metaPlace: 'Olbia',
+    titlePlace: 'Olbia',
     locative: 'a Olbia e in Gallura',
     zoneText: 'Operiamo a domicilio a Olbia e nelle principali località della Gallura. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
@@ -54,6 +65,7 @@ const HUB_SETTINGS = {
     outputSlug: 'oristano',
     label: 'Oristano e provincia',
     metaPlace: 'Oristano',
+    titlePlace: 'Oristano',
     locative: 'a Oristano e provincia',
     zoneText: 'Operiamo a domicilio a Oristano e nelle principali località della provincia. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
@@ -61,6 +73,7 @@ const HUB_SETTINGS = {
     outputSlug: 'nuoro',
     label: 'Nuoro e provincia',
     metaPlace: 'Nuoro',
+    titlePlace: 'Nuoro',
     locative: 'a Nuoro e provincia',
     zoneText: 'Operiamo a domicilio a Nuoro e nelle principali località della provincia. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
@@ -68,6 +81,7 @@ const HUB_SETTINGS = {
     outputSlug: 'ogliastra',
     label: 'Ogliastra',
     metaPlace: 'Ogliastra',
+    titlePlace: 'Ogliastra',
     locative: 'in Ogliastra',
     zoneText: 'Operiamo a domicilio in Ogliastra e nelle località vicine. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
@@ -75,6 +89,7 @@ const HUB_SETTINGS = {
     outputSlug: 'sulcis-iglesiente',
     label: 'Sulcis Iglesiente',
     metaPlace: 'Sulcis Iglesiente',
+    titlePlace: 'Sulcis Iglesiente',
     locative: 'nel Sulcis Iglesiente',
     zoneText: 'Operiamo a domicilio nel Sulcis Iglesiente e nelle località vicine. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
@@ -82,6 +97,7 @@ const HUB_SETTINGS = {
     outputSlug: 'medio-campidano',
     label: 'Medio Campidano',
     metaPlace: 'Medio Campidano',
+    titlePlace: 'Medio Campidano',
     locative: 'nel Medio Campidano',
     zoneText: 'Operiamo a domicilio nel Medio Campidano e nelle località vicine. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.'
   },
@@ -89,6 +105,7 @@ const HUB_SETTINGS = {
     outputSlug: 'sud-sardegna',
     label: 'Sud Sardegna',
     metaPlace: 'Sud Sardegna',
+    titlePlace: 'Sud Sardegna',
     locative: 'nel Sud Sardegna',
     zoneText: 'Operiamo a domicilio nel Sud Sardegna e nelle principali località collegate. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.',
     aggregatePrimaryHubIds: ['hub-cagliari', 'hub-sulcis-iglesiente', 'hub-medio-campidano']
@@ -179,12 +196,12 @@ function cleanPublicTerms(html) {
 }
 
 function commonPageTransforms(html, options) {
-  const { titleLocative, h1Locative, metaLocative, metaPlace, canonical } = options;
+  const { titleLocative, h1Locative, metaLocative, metaPlace, titlePlace, canonical } = options;
+  const cleanTitlePlace = titlePlace || metaPlace;
 
-  html = replaceFirst(
-    html,
-    '<title>Lavaggio Divani e Materassi a Domicilio in Sardegna | LavaggioDivani</title>',
-    `<title>Lavaggio Divani e Materassi a Domicilio ${titleLocative} | LavaggioDivani</title>`
+  html = html.replace(
+    /<title>[\s\S]*?<\/title>/,
+    `<title>Lavaggio divani a domicilio ${cleanTitlePlace}</title>`
   );
 
   html = replaceFirst(
@@ -237,7 +254,20 @@ function replaceZoneSection(html, title, text, listHtml) {
     'Scegli la tua area e verifica il servizio più vicino a te. LavaggioDivani organizza interventi a domicilio nelle principali zone della Sardegna, con pagine dedicate alle province e alle località servite.',
     text
   );
-  html = html.replace(originalZoneList(), listHtml);
+
+  let replacedList = false;
+  html = html.replace(
+    /(<section id="zone"[\s\S]*?<div class="zone-box">\s*)<ul class="zone-list">[\s\S]*?<\/ul>/,
+    (match, prefix) => {
+      replacedList = true;
+      return `${prefix}${listHtml.trimStart()}`;
+    }
+  );
+
+  if (!replacedList) {
+    throw new Error('Blocco zone-list non trovato dentro la sezione zone. Verificare index.html.');
+  }
+
   return html;
 }
 
@@ -319,6 +349,7 @@ function generateHub(master, hub, municipalities) {
     outputSlug: hub.slug,
     label: hub.name,
     metaPlace: hub.name,
+    titlePlace: hub.name,
     locative: `a ${hub.name}`,
     zoneText: `Operiamo a domicilio a ${hub.name} e nelle località vicine. Se la tua zona non è nell’elenco, chiamaci o scrivici su WhatsApp: ti diremo subito se possiamo organizzare l’intervento.`
   };
@@ -332,6 +363,7 @@ function generateHub(master, hub, municipalities) {
     h1Locative: settings.locative,
     metaLocative: settings.locative,
     metaPlace: settings.metaPlace,
+    titlePlace: settings.titlePlace || settings.metaPlace,
     canonical
   });
 
@@ -358,6 +390,7 @@ function generateLocality(master, locality, hubs, municipalities) {
     h1Locative: locative,
     metaLocative: locative,
     metaPlace: locality.name,
+    titlePlace: locality.name,
     canonical
   });
 
