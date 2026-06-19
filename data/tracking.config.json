@@ -1,8 +1,8 @@
 {
   "_file": "data/tracking.config.json",
   "_purpose": "Central tracking configuration for LavaggioDivani. Keep IDs here so pages do not need to be edited one by one.",
-  "_status": "Prepared but disabled. Fill IDs and set trackingEnabled true only after consent/banner setup is ready.",
-  "trackingEnabled": false,
+  "_status": "GA4 enabled with Consent Mode. Google Ads, Meta Pixel and GTM disabled.",
+  "trackingEnabled": true,
   "debug": false,
   "site": {
     "brand": "LavaggioDivani",
@@ -59,8 +59,8 @@
     "containerId": ""
   },
   "googleAnalytics4": {
-    "enabled": false,
-    "measurementId": ""
+    "enabled": true,
+    "measurementId": "G-N49CL4H08D"
   },
   "googleAds": {
     "enabled": false,
@@ -80,8 +80,9 @@
     "emailEventName": "email_click"
   },
   "notesForPier": [
-    "Preferred setup: use Google Tag Manager containerId and manage GA4, Google Ads and Meta Pixel inside GTM.",
-    "Keep trackingEnabled false until the cookie/consent banner is ready.",
+    "GA4 is enabled directly through the centralized tracking loader.",
+    "Consent Mode remains denied by default for analytics and ads until the user accepts or updates cookie preferences.",
+    "Google Ads, Meta Pixel and Google Tag Manager remain disabled for now.",
     "When IDs change, edit only this file and keep every HTML page untouched.",
     "Use DNS verification for Google Search Console where possible, not an HTML tag."
   ]
