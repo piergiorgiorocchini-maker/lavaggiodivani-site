@@ -409,7 +409,7 @@ function generateLocality(master, locality, hubs, municipalities) {
 function validateMaster(master) {
   const required = [
     'sopratutto economico',
-    '#25D366',
+    'btn-whatsapp',
     'assets/img/lavaggio-divano-hero.webp',
     'assets/js/cookie-consent.js'
   ];
@@ -422,7 +422,7 @@ function validateMaster(master) {
 function validateGenerated(segment, html) {
   const failures = [];
   if (!html.includes('sopratutto economico')) failures.push('testo utente mancante');
-  if (!html.includes('#25D366')) failures.push('WhatsApp verde mancante');
+  if (!html.includes('btn-whatsapp')) failures.push('classe WhatsApp mancante');
   if (!html.includes('href="/assets/css/cleaning-landing.css"')) failures.push('CSS non assoluto');
   if (!html.includes('/assets/img/lavaggio-divano-hero.webp')) failures.push('immagine hero neutra non trovata');
   if (html.toLowerCase().includes('autorevolezza')) failures.push('termine interno autorevolezza presente');
