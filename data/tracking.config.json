@@ -1,26 +1,26 @@
 {
   "_file": "data/tracking.config.json",
   "_purpose": "Central tracking configuration for LavaggioDivani. Keep IDs here so pages do not need to be edited one by one.",
-  "_status": "GA4 enabled with Consent Mode. Google Ads, Meta Pixel and GTM disabled.",
+  "_status": "GA4 enabled. Tracking defaults granted; cookie banner is informational. Google Ads, Meta Pixel and GTM remain disabled until IDs are added.",
   "trackingEnabled": true,
   "debug": false,
   "site": {
     "brand": "LavaggioDivani",
-    "baseUrl": "https://www.lavaggiodivani.net",
+    "baseUrl": "https://lavaggiodivani.net",
     "country": "IT",
     "language": "it-IT"
   },
   "consent": {
     "consentModeEnabled": true,
     "defaultState": {
-      "ad_storage": "denied",
-      "ad_user_data": "denied",
-      "ad_personalization": "denied",
-      "analytics_storage": "denied",
+      "ad_storage": "granted",
+      "ad_user_data": "granted",
+      "ad_personalization": "granted",
+      "analytics_storage": "granted",
       "functionality_storage": "granted",
       "security_storage": "granted"
     },
-    "waitForUpdateMilliseconds": 500,
+    "waitForUpdateMilliseconds": 0,
     "region": [
       "AT",
       "BE",
@@ -81,8 +81,9 @@
   },
   "notesForPier": [
     "GA4 is enabled directly through the centralized tracking loader.",
-    "Consent Mode remains denied by default for analytics and ads until the user accepts or updates cookie preferences.",
-    "Google Ads, Meta Pixel and Google Tag Manager remain disabled for now.",
+    "Tracking defaults are granted so GA4 page views and click events are not blocked by the banner.",
+    "The cookie banner now works as an informational notice, not as a blocking consent gate.",
+    "Google Ads, Meta Pixel and Google Tag Manager remain disabled until their IDs are added here.",
     "When IDs change, edit only this file and keep every HTML page untouched.",
     "Use DNS verification for Google Search Console where possible, not an HTML tag."
   ]
