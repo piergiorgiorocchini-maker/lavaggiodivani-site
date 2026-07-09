@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.lavaggiodivani.net/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -68,9 +68,9 @@
   </url>
   <url>
     <loc>https://www.lavaggiodivani.net/lavaggio-divani-a-domicilio-cagliari/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.lavaggiodivani.net/lavaggio-divani-a-domicilio-porto-cervo/</loc>
@@ -86,9 +86,9 @@
   </url>
   <url>
     <loc>https://www.lavaggiodivani.net/lavaggio-divani-a-domicilio-quartu-sant-elena/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.lavaggiodivani.net/lavaggio-divani-a-domicilio-baja-sardinia/</loc>
@@ -751,9 +751,9 @@
     <priority>0.7</priority>
   </url>
   <url>
-  <loc>https://www.lavaggiodivani.net/pulizia-divano-a-domicilio-prezzi/</loc>
-  <lastmod>2026-07-08</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.85</priority>
-</url>
+    <loc>https://www.lavaggiodivani.net/pulizia-divano-a-domicilio-prezzi/</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
