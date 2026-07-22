@@ -710,7 +710,7 @@
   </url>
   <url>
     <loc>https://www.lavaggiodivani.net/guides/</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -752,8 +752,15 @@
   </url>
   <url>
     <loc>https://www.lavaggiodivani.net/pulizia-divano-a-domicilio-prezzi/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.lavaggiodivani.net/come-pulire-divano-in-tessuto/</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 </urlset>
+
