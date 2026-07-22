@@ -19,7 +19,7 @@
   "vatId": "03834620928",
   "vatIdSchema": "IT03834620928",
   "domain": "lavaggiodivani.net",
-  "baseUrl": "https://www.lavaggiodivani.net",
+  "baseUrl": "https://lavaggiodivani.net",
   "region": "Sardegna",
   "primaryService": "lavaggio divani e materassi a domicilio",
   "secondaryServices": [
@@ -35,7 +35,7 @@
   "trackingScriptPath": "/assets/js/tracking.js",
   "notes": {
     "legalAddressVisibility": "Usare businessLegalName e businessAddress solo nei Termini e Condizioni, salvo diversa richiesta.",
-    "canonicalPolicy": "Usare URL canonici con https://www.lavaggiodivani.net.",
+    "canonicalPolicy": "Usare URL canonici con https://lavaggiodivani.net.",
     "legacyLocationsStatus": "data/locations.json pensionato; usare data/geo.sardegna.json per la struttura geografica futura."
   },
   "displayBrand": "Lavaggio Divani Sardegna",

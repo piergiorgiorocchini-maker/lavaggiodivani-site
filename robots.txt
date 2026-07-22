@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lavaggiodivani.net/sitemap.xml
+Sitemap: https://lavaggiodivani.net/sitemap.xml

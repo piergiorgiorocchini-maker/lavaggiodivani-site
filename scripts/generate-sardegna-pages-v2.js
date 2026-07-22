@@ -21,7 +21,7 @@ const GEO_PATHS = [
 const SERVICE = {
   brand: 'LavaggioDivani',
   domain: 'lavaggiodivani.net',
-  baseUrl: 'https://www.lavaggiodivani.net',
+  baseUrl: 'https://lavaggiodivani.net',
   serviceSlug: 'lavaggio-divani',
   pageServiceName: 'Lavaggio Divani e Materassi',
   visibleServiceName: 'Lavaggio divani e materassi',
@@ -211,15 +211,15 @@ function commonPageTransforms(html, options) {
   );
 
   html = replaceFirst(html, '<meta name="geo.placename" content="Sardegna">', `<meta name="geo.placename" content="${metaPlace}">`);
-  html = replaceFirst(html, '<link rel="canonical" href="https://www.lavaggiodivani.net/">', `<link rel="canonical" href="${canonical}">`);
+  html = replaceFirst(html, '<link rel="canonical" href="https://lavaggiodivani.net/">', `<link rel="canonical" href="${canonical}">`);
 
   html = replaceAll(html, 'content="Lavaggio divani e materassi a domicilio in Sardegna"', `content="Lavaggio divani e materassi a domicilio ${metaLocative}"`);
   html = replaceAll(html, 'content="Lavaggio divani e materassi a domicilio in Sardegna. Chiama o scrivi su WhatsApp, invia le foto e ricevi un preventivo con Piergiorgio."', `content="Lavaggio divani e materassi a domicilio ${metaLocative}. Chiama o scrivi su WhatsApp, invia le foto e ricevi un preventivo con Piergiorgio."`);
   html = replaceAll(html, 'content="Lavaggio divani e materassi a domicilio in Sardegna. Preventivo rapido con Piergiorgio anche via WhatsApp."', `content="Lavaggio divani e materassi a domicilio ${metaLocative}. Preventivo rapido con Piergiorgio anche via WhatsApp."`);
-  html = replaceAll(html, 'content="https://www.lavaggiodivani.net/">', `content="${canonical}">`);
+  html = replaceAll(html, 'content="https://lavaggiodivani.net/">', `content="${canonical}">`);
 
-  html = replaceFirst(html, '"url": "https://www.lavaggiodivani.net/",', `"url": "${canonical}",`);
-  html = replaceFirst(html, '"url": "https://www.lavaggiodivani.net/",', `"url": "${canonical}",`);
+  html = replaceFirst(html, '"url": "https://lavaggiodivani.net/",', `"url": "${canonical}",`);
+  html = replaceFirst(html, '"url": "https://lavaggiodivani.net/",', `"url": "${canonical}",`);
   html = replaceAll(html, '"name": "Lavaggio Divani e Materassi a Domicilio in Sardegna"', `"name": "Lavaggio Divani e Materassi a Domicilio ${titleLocative}"`);
   html = replaceAll(html, '"description": "Lavaggio divani e materassi a domicilio in Sardegna. Chiama o scrivi su WhatsApp, invia le foto e ricevi un preventivo con Piergiorgio.",', `"description": "Lavaggio divani e materassi a domicilio ${metaLocative}. Chiama o scrivi su WhatsApp, invia le foto e ricevi un preventivo con Piergiorgio.",`);
 
