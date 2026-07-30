@@ -1,0 +1,1 @@
+(()=>{document.querySelectorAll('[data-ld-asset="portrait"]').forEach(img=>{img.src='/assets/img/ads-cagliari/piergiorgio.svg';img.removeAttribute('data-ld-asset')})})();
