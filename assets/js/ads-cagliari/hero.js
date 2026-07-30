@@ -1,0 +1,1 @@
+(()=>{document.querySelectorAll('[data-ld-asset="hero"]').forEach(img=>{img.src='/assets/img/ads-cagliari/hero.svg';img.removeAttribute('data-ld-asset')})})();
