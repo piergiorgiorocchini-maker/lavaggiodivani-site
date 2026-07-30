@@ -1,0 +1,1 @@
+(()=>{document.querySelectorAll('[data-ld-asset="proof"]').forEach(img=>{img.src='/assets/img/ads-cagliari/proof.svg';img.removeAttribute('data-ld-asset')})})();
