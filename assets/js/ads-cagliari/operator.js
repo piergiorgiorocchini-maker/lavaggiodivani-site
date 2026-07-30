@@ -1,0 +1,1 @@
+(()=>{document.querySelectorAll('[data-ld-asset="operator"]').forEach(img=>{img.src='/assets/img/ads-cagliari/operator.svg';img.removeAttribute('data-ld-asset')})})();
