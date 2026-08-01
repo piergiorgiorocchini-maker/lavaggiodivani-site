@@ -82,3 +82,16 @@
     init();
   }
 })();
+
+(function () {
+  "use strict";
+
+  if (window.location.pathname !== "/preventivo-pulizia-divani-cagliari/") return;
+  if (document.querySelector('script[data-ld-geo]')) return;
+
+  var script = document.createElement("script");
+  script.src = "/assets/js/landing-geo.js?v=20260801-1";
+  script.async = false;
+  script.setAttribute("data-ld-geo", "true");
+  document.head.appendChild(script);
+})();
