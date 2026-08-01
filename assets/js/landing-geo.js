@@ -5,18 +5,18 @@
   if (window.location.pathname !== LANDING_PATH) return;
 
   var PREVIEW_LOCATIONS = {
-    cagliari: ["Cagliari e hinterland", "Servizio a domicilio disponibile a Cagliari"],
-    quartucciu: ["Cagliari e Quartucciu", "Servizio a domicilio disponibile anche a Quartucciu"],
-    "quartu-sant-elena": ["Cagliari e Quartu Sant'Elena", "Servizio a domicilio disponibile anche a Quartu Sant'Elena"],
-    selargius: ["Cagliari e Selargius", "Servizio a domicilio disponibile anche a Selargius"],
-    monserrato: ["Cagliari e Monserrato", "Servizio a domicilio disponibile anche a Monserrato"],
-    sestu: ["Cagliari e Sestu", "Servizio a domicilio disponibile anche a Sestu"],
-    elmas: ["Cagliari e Elmas", "Servizio a domicilio disponibile anche a Elmas"],
-    assemini: ["Cagliari e Assemini", "Servizio a domicilio disponibile anche a Assemini"],
-    capoterra: ["Cagliari e Capoterra", "Servizio a domicilio disponibile anche a Capoterra"],
-    sinnai: ["Cagliari e Sinnai", "Servizio a domicilio disponibile anche a Sinnai"],
-    maracalagonis: ["Cagliari e Maracalagonis", "Servizio a domicilio disponibile anche a Maracalagonis"],
-    "settimo-san-pietro": ["Cagliari e Settimo San Pietro", "Servizio a domicilio disponibile anche a Settimo San Pietro"]
+    cagliari: ["Cagliari e hinterland", "Servizio a domicilio disponibile a Cagliari", "Cagliari"],
+    quartucciu: ["Cagliari e Quartucciu", "Servizio a domicilio disponibile anche a Quartucciu", "Quartucciu"],
+    "quartu-sant-elena": ["Cagliari e Quartu Sant'Elena", "Servizio a domicilio disponibile anche a Quartu Sant'Elena", "Quartu Sant'Elena"],
+    selargius: ["Cagliari e Selargius", "Servizio a domicilio disponibile anche a Selargius", "Selargius"],
+    monserrato: ["Cagliari e Monserrato", "Servizio a domicilio disponibile anche a Monserrato", "Monserrato"],
+    sestu: ["Cagliari e Sestu", "Servizio a domicilio disponibile anche a Sestu", "Sestu"],
+    elmas: ["Cagliari e Elmas", "Servizio a domicilio disponibile anche a Elmas", "Elmas"],
+    assemini: ["Cagliari e Assemini", "Servizio a domicilio disponibile anche a Assemini", "Assemini"],
+    capoterra: ["Cagliari e Capoterra", "Servizio a domicilio disponibile anche a Capoterra", "Capoterra"],
+    sinnai: ["Cagliari e Sinnai", "Servizio a domicilio disponibile anche a Sinnai", "Sinnai"],
+    maracalagonis: ["Cagliari e Maracalagonis", "Servizio a domicilio disponibile anche a Maracalagonis", "Maracalagonis"],
+    "settimo-san-pietro": ["Cagliari e Settimo San Pietro", "Servizio a domicilio disponibile anche a Settimo San Pietro", "Settimo San Pietro"]
   };
 
   function injectStyles() {
@@ -35,7 +35,8 @@
   function createUi() {
     var localBar = document.querySelector(".local-bar");
     var heroLead = document.querySelector(".hero-lead");
-    if (!localBar || !heroLead) return null;
+    var titleLocation = document.querySelector(".hero-copy h1 span");
+    if (!localBar || !heroLead || !titleLocation) return null;
 
     var bar = document.getElementById("geo-bar");
     if (!bar) {
@@ -64,15 +65,18 @@
       heroLead.insertAdjacentElement("afterend", hero);
     }
 
-    return { bar: bar, hero: hero };
+    return { bar: bar, hero: hero, titleLocation: titleLocation };
   }
 
-  function applyGeo(ui, barText, heroText) {
+  function applyGeo(ui, barText, heroText, city) {
     if (typeof barText === "string" && barText.length <= 80) {
       ui.bar.textContent = barText;
     }
     if (typeof heroText === "string" && heroText.length <= 100) {
       ui.hero.textContent = heroText;
+    }
+    if (typeof city === "string" && city.trim() && city.length <= 40) {
+      ui.titleLocation.textContent = "a " + city.trim();
     }
   }
 
@@ -92,7 +96,7 @@
     var preview = new URLSearchParams(window.location.search).get("geo-preview");
     var previewData = PREVIEW_LOCATIONS[previewKey(preview)];
     if (previewData) {
-      applyGeo(ui, previewData[0], previewData[1]);
+      applyGeo(ui, previewData[0], previewData[1], previewData[2]);
       return;
     }
 
@@ -112,7 +116,7 @@
         return response.json();
       })
       .then(function (data) {
-        applyGeo(ui, data.barText, data.heroText);
+        applyGeo(ui, data.barText, data.heroText, data.city);
       })
       .catch(function () {
         /* Il fallback resta visibile. */
