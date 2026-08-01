@@ -7,7 +7,7 @@
   var PREVIEW_LOCATIONS = {
     cagliari: ["Cagliari e hinterland", "Servizio a domicilio disponibile a Cagliari"],
     quartucciu: ["Cagliari e Quartucciu", "Servizio a domicilio disponibile anche a Quartucciu"],
-    "quartu-santelena": ["Cagliari e Quartu Sant'Elena", "Servizio a domicilio disponibile anche a Quartu Sant'Elena"],
+    "quartu-sant-elena": ["Cagliari e Quartu Sant'Elena", "Servizio a domicilio disponibile anche a Quartu Sant'Elena"],
     selargius: ["Cagliari e Selargius", "Servizio a domicilio disponibile anche a Selargius"],
     monserrato: ["Cagliari e Monserrato", "Servizio a domicilio disponibile anche a Monserrato"],
     sestu: ["Cagliari e Sestu", "Servizio a domicilio disponibile anche a Sestu"],
