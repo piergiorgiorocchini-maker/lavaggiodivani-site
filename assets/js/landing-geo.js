@@ -35,6 +35,21 @@
     document.head.appendChild(style);
   }
 
+  function createArmchairTrust() {
+    if (window.location.pathname !== "/pulizia-lavaggio-poltrone-a-domicilio-cagliari/") return;
+    if (document.getElementById("customer-trust-armchairs")) return;
+
+    var personalSection = document.querySelector(".personal-section");
+    if (!personalSection) return;
+
+    var section = document.createElement("section");
+    section.id = "customer-trust-armchairs";
+    section.className = "section customer-trust-section";
+    section.setAttribute("aria-labelledby", "customer-trust-armchairs-title");
+    section.innerHTML = '<div class="shell"><div class="customer-trust-heading"><p class="eyebrow">Fiducia</p><h2 id="customer-trust-armchairs-title">Perché i clienti ci richiamano</h2></div><div class="customer-trust-grid"><blockquote><div class="customer-trust-rating" aria-label="5 stelle su 5">★★★★★</div><p>La poltrona era molto segnata sui braccioli e sulla seduta. Dopo il trattamento è tornata pulita, fresca e uniforme.</p><cite>Cliente privato · Cagliari</cite></blockquote><blockquote><div class="customer-trust-rating" aria-label="5 stelle su 5">★★★★★</div><p>Servizio puntuale e preciso. Abbiamo fatto pulire due poltrone senza doverle spostare da casa e il risultato è stato evidente.</p><cite>Cliente privato · Hinterland di Cagliari</cite></blockquote></div></div>';
+    personalSection.insertAdjacentElement("afterend", section);
+  }
+
   function createUi() {
     var localBar = document.querySelector(".local-bar");
     var heroLead = document.querySelector(".hero-lead");
@@ -44,10 +59,7 @@
     var bar = document.getElementById("geo-bar");
     if (!bar) {
       var firstNode = localBar.firstChild;
-      if (firstNode && firstNode.nodeType === Node.TEXT_NODE) {
-        firstNode.nodeValue = "";
-      }
-
+      if (firstNode && firstNode.nodeType === Node.TEXT_NODE) firstNode.nodeValue = "";
       bar = document.createElement("span");
       bar.id = "geo-bar";
       bar.setAttribute("aria-live", "polite");
@@ -72,27 +84,18 @@
   }
 
   function applyGeo(ui, barText, heroText, city) {
-    if (typeof barText === "string" && barText.length <= 80) {
-      ui.bar.textContent = barText;
-    }
-    if (typeof heroText === "string" && heroText.length <= 100) {
-      ui.hero.textContent = heroText;
-    }
-    if (typeof city === "string" && city.trim() && city.length <= 40) {
-      ui.titleLocation.textContent = "a " + city.trim();
-    }
+    if (typeof barText === "string" && barText.length <= 80) ui.bar.textContent = barText;
+    if (typeof heroText === "string" && heroText.length <= 100) ui.hero.textContent = heroText;
+    if (typeof city === "string" && city.trim() && city.length <= 40) ui.titleLocation.textContent = "a " + city.trim();
   }
 
   function previewKey(value) {
-    return String(value || "")
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
+    return String(value || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
 
   function init() {
     injectStyles();
+    createArmchairTrust();
     var ui = createUi();
     if (!ui) return;
 
@@ -104,9 +107,7 @@
     }
 
     var controller = typeof AbortController === "function" ? new AbortController() : null;
-    var timeout = window.setTimeout(function () {
-      if (controller) controller.abort();
-    }, 1800);
+    var timeout = window.setTimeout(function () { if (controller) controller.abort(); }, 1800);
 
     fetch("/geo.json", {
       method: "GET",
@@ -118,20 +119,11 @@
         if (!response.ok) throw new Error("Geo endpoint unavailable");
         return response.json();
       })
-      .then(function (data) {
-        applyGeo(ui, data.barText, data.heroText, data.city);
-      })
-      .catch(function () {
-        /* Il fallback resta visibile. */
-      })
-      .finally(function () {
-        window.clearTimeout(timeout);
-      });
+      .then(function (data) { applyGeo(ui, data.barText, data.heroText, data.city); })
+      .catch(function () {})
+      .finally(function () { window.clearTimeout(timeout); });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();
