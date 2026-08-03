@@ -3,7 +3,8 @@
 
   var LANDING_PATHS = [
     "/preventivo-pulizia-divani-cagliari/",
-    "/pulizia-lavaggio-poltrone-a-domicilio-cagliari/"
+    "/pulizia-lavaggio-poltrone-a-domicilio-cagliari/",
+    "/lavaggio-pulizia-materassi-a-domicilio-cagliari/"
   ];
   if (LANDING_PATHS.indexOf(window.location.pathname) === -1) return;
 
@@ -33,21 +34,6 @@
       "@media(max-width:720px){.hero-geo{margin:-6px 0 18px;font-size:13px}}"
     ].join("");
     document.head.appendChild(style);
-  }
-
-  function createArmchairTrust() {
-    if (window.location.pathname !== "/pulizia-lavaggio-poltrone-a-domicilio-cagliari/") return;
-    if (document.getElementById("customer-trust-armchairs")) return;
-
-    var personalSection = document.querySelector(".personal-section");
-    if (!personalSection) return;
-
-    var section = document.createElement("section");
-    section.id = "customer-trust-armchairs";
-    section.className = "section customer-trust-section";
-    section.setAttribute("aria-labelledby", "customer-trust-armchairs-title");
-    section.innerHTML = '<div class="shell"><div class="customer-trust-heading"><p class="eyebrow">Fiducia</p><h2 id="customer-trust-armchairs-title">Perché i clienti ci richiamano</h2></div><div class="customer-trust-grid"><blockquote><div class="customer-trust-rating" aria-label="5 stelle su 5">★★★★★</div><p>La poltrona era molto segnata sui braccioli e sulla seduta. Dopo il trattamento è tornata pulita, fresca e uniforme.</p><cite>Cliente privato · Cagliari</cite></blockquote><blockquote><div class="customer-trust-rating" aria-label="5 stelle su 5">★★★★★</div><p>Servizio puntuale e preciso. Abbiamo fatto pulire due poltrone senza doverle spostare da casa e il risultato è stato evidente.</p><cite>Cliente privato · Hinterland di Cagliari</cite></blockquote></div></div>';
-    personalSection.insertAdjacentElement("afterend", section);
   }
 
   function createUi() {
@@ -95,7 +81,6 @@
 
   function init() {
     injectStyles();
-    createArmchairTrust();
     var ui = createUi();
     if (!ui) return;
 
