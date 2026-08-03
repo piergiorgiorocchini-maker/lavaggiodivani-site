@@ -49,7 +49,9 @@
     style.textContent = [
       ".hero-geo{display:flex;align-items:center;gap:8px;margin:-9px 0 20px;color:#147dcc;font-size:14px;font-weight:850}",
       ".hero-geo:before{content:'✓';display:grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:#e3f5eb;color:#128f48;font-size:13px}",
-      ".regional-proof{padding:92px 0;background:#f7fbff}",
+      ".regional-proof-divider{padding:42px 0 16px;background:#fff}",
+      ".regional-proof-divider .final-card{margin-bottom:0}",
+      ".regional-proof{padding:76px 0 92px;background:#f7fbff}",
       ".regional-proof-shell{max-width:1120px;margin:0 auto;padding:0 24px}",
       ".regional-proof-head{text-align:center;max-width:760px;margin:0 auto 42px}",
       ".regional-proof-head .eyebrow{margin-bottom:10px}",
@@ -77,7 +79,7 @@
       ".regional-proof-mini p{margin:10px 0 0;color:#52677f;line-height:1.55}",
       ".regional-proof-mini cite{display:block;margin-top:14px;color:#071a35;font-style:normal;font-weight:800}",
       "@media(max-width:820px){.regional-proof-stage{grid-template-columns:1fr}.regional-proof-mini{grid-template-columns:1fr}}",
-      "@media(max-width:720px){.hero-geo{margin:-6px 0 18px;font-size:13px}.regional-proof{padding:64px 0}.regional-proof-stage{padding:16px;border-radius:24px}.regional-proof-main{padding:18px}.regional-proof-person img{width:64px;height:64px}}"
+      "@media(max-width:720px){.hero-geo{margin:-6px 0 18px;font-size:13px}.regional-proof-divider{padding:28px 0 8px}.regional-proof{padding:56px 0 64px}.regional-proof-stage{padding:16px;border-radius:24px}.regional-proof-main{padding:18px}.regional-proof-person img{width:64px;height:64px}}"
     ].join("");
     document.head.appendChild(style);
   }
@@ -86,6 +88,11 @@
     if (config.proof !== "divani") return;
     var oldSection = document.querySelector(".customer-trust-section");
     if (!oldSection || document.getElementById("regional-proof")) return;
+
+    var divider = document.createElement("section");
+    divider.className = "mid-cta regional-proof-divider";
+    divider.setAttribute("aria-label", "Invia foto e località");
+    divider.innerHTML = '<div class="shell final-card"><div><p class="eyebrow">Il primo passo richiede meno di un minuto</p><h2>Invia le foto e indica il tuo comune.</h2><p>Ricevi una valutazione personale prima di fissare l’intervento.</p></div><a class="btn btn-wa btn-large" href="https://wa.me/393516550908?text=Ciao%20Piergiorgio%2C%20vorrei%20una%20valutazione%20per%20la%20pulizia%20del%20mio%20divano.%20Ti%20invio%20le%20foto%20e%20il%20comune%20dell%27intervento." target="_blank" rel="noopener">Invia foto e località</a></div>';
 
     var section = document.createElement("section");
     section.id = "regional-proof";
@@ -117,6 +124,8 @@
       '</div>',
       '</div>'
     ].join("");
+
+    oldSection.parentNode.insertBefore(divider, oldSection);
     oldSection.replaceWith(section);
   }
 
