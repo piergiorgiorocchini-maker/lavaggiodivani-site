@@ -1,8 +1,11 @@
 (function () {
   "use strict";
 
-  var LANDING_PATH = "/preventivo-pulizia-divani-cagliari/";
-  if (window.location.pathname !== LANDING_PATH) return;
+  var LANDING_PATHS = [
+    "/preventivo-pulizia-divani-cagliari/",
+    "/pulizia-lavaggio-poltrone-a-domicilio-cagliari/"
+  ];
+  if (LANDING_PATHS.indexOf(window.location.pathname) === -1) return;
 
   var PREVIEW_LOCATIONS = {
     cagliari: ["Cagliari e hinterland", "Servizio a domicilio disponibile a Cagliari", "Cagliari"],
