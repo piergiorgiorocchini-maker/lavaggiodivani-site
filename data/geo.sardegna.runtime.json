@@ -1,0 +1,147 @@
+{
+  "_schema": "LocalSeoGeoRuntime.v1",
+  "_file": "data/geo.sardegna.runtime.json",
+  "_status": "production-regionwide",
+  "_lastUpdated": "2026-08-03",
+  "region": {
+    "name": "Sardegna",
+    "country": "Italia",
+    "countryCode": "IT",
+    "geoRegion": "IT-88",
+    "cloudflareRegionNames": [
+      "Sardinia",
+      "Sardegna"
+    ],
+    "municipalityCount": 377
+  },
+  "runtimeMatching": {
+    "strategy": "cloudflare-city-with-region-validation",
+    "acceptAnyMunicipalityInsideRegion": true,
+    "requireCountryCode": "IT",
+    "acceptedRegionCodes": [
+      "88",
+      "IT-88"
+    ],
+    "acceptedRegionNames": [
+      "Sardinia",
+      "Sardegna"
+    ],
+    "normalize": {
+      "unicode": "NFD",
+      "removeDiacritics": true,
+      "normalizeApostrophes": true,
+      "collapseWhitespace": true,
+      "trim": true
+    },
+    "fallback": {
+      "matched": false,
+      "city": null,
+      "region": "Sardegna",
+      "barText": "Servizio disponibile in Sardegna",
+      "heroText": "Intervento a domicilio disponibile in Sardegna"
+    }
+  },
+  "administrativeAreas": [
+    {
+      "id": "cm-cagliari",
+      "name": "Città Metropolitana di Cagliari",
+      "shortLabel": "Cagliari e area metropolitana",
+      "istatCode": "318"
+    },
+    {
+      "id": "cm-sassari",
+      "name": "Città Metropolitana di Sassari",
+      "shortLabel": "Sassari e Nord-Ovest Sardegna",
+      "istatCode": "312"
+    },
+    {
+      "id": "prov-gallura-nord-est",
+      "name": "Provincia della Gallura Nord-Est Sardegna",
+      "shortLabel": "Olbia e Gallura",
+      "istatCode": "113"
+    },
+    {
+      "id": "prov-nuoro",
+      "name": "Provincia di Nuoro",
+      "shortLabel": "Nuoro e Barbagia",
+      "istatCode": "114"
+    },
+    {
+      "id": "prov-oristano",
+      "name": "Provincia di Oristano",
+      "shortLabel": "Oristano e provincia",
+      "istatCode": "115"
+    },
+    {
+      "id": "prov-ogliastra",
+      "name": "Provincia dell'Ogliastra",
+      "shortLabel": "Ogliastra",
+      "istatCode": "116"
+    },
+    {
+      "id": "prov-medio-campidano",
+      "name": "Provincia del Medio Campidano",
+      "shortLabel": "Medio Campidano",
+      "istatCode": "117"
+    },
+    {
+      "id": "prov-sulcis-iglesiente",
+      "name": "Provincia del Sulcis Iglesiente",
+      "shortLabel": "Sulcis Iglesiente",
+      "istatCode": "119"
+    }
+  ],
+  "commercialAreaRules": [
+    {
+      "id": "area-cagliari",
+      "keywords": ["Cagliari", "Quartu Sant'Elena", "Selargius", "Monserrato", "Sestu", "Assemini", "Capoterra", "Elmas"],
+      "label": "Cagliari e area metropolitana"
+    },
+    {
+      "id": "area-olbia-gallura",
+      "keywords": ["Olbia", "Arzachena", "Porto Cervo", "Tempio Pausania", "La Maddalena", "Palau", "Santa Teresa Gallura"],
+      "label": "Olbia e Gallura"
+    },
+    {
+      "id": "area-sassari",
+      "keywords": ["Sassari", "Alghero", "Porto Torres", "Stintino", "Castelsardo", "Sorso"],
+      "label": "Sassari e Nord-Ovest Sardegna"
+    },
+    {
+      "id": "area-oristano",
+      "keywords": ["Oristano", "Mogoro", "Terralba", "Cabras", "Bosa", "Ghilarza"],
+      "label": "Oristano e provincia"
+    },
+    {
+      "id": "area-nuoro",
+      "keywords": ["Nuoro", "Siniscola", "Macomer", "Dorgali", "Orosei", "Fonni"],
+      "label": "Nuoro e Barbagia"
+    },
+    {
+      "id": "area-ogliastra",
+      "keywords": ["Tortolì", "Lanusei", "Bari Sardo", "Baunei", "Arbatax"],
+      "label": "Ogliastra"
+    },
+    {
+      "id": "area-medio-campidano",
+      "keywords": ["Sanluri", "Villacidro", "Guspini", "Serrenti", "Sardara"],
+      "label": "Medio Campidano"
+    },
+    {
+      "id": "area-sulcis-iglesiente",
+      "keywords": ["Carbonia", "Iglesias", "Gonnesa", "Sant'Antioco", "Carloforte"],
+      "label": "Sulcis Iglesiente"
+    }
+  ],
+  "payloadContract": {
+    "matched": "boolean",
+    "city": "string|null",
+    "region": "string",
+    "regionCode": "string|null",
+    "countryCode": "string|null",
+    "latitude": "string|null",
+    "longitude": "string|null",
+    "barText": "string",
+    "heroText": "string"
+  }
+}
