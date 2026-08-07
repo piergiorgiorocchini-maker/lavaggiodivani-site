@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://lavaggiodivani.net/sitemap.xml
+Sitemap: https://lavaggiodivani.net/sitemap-guides.xml
