@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Preview Divani Sardegna Combo</title>
+  <style>html,body{margin:0;min-height:100%;font-family:system-ui,sans-serif;background:#f6f7f9}.msg{padding:24px;text-align:center;color:#243248}</style>
+</head>
+<body>
+<div class="msg">Caricamento preview…</div>
+<script>
+(async()=>{
+  const url='https://raw.githubusercontent.com/piergiorgiorocchini-maker/lavaggiodivani-site/agent/divani-sardegna-combo/pulizia-divani-a-domicilio-sardegna/index.html';
+  const r=await fetch(url,{cache:'no-store'});
+  let html=await r.text();
+  html=html.replace('<head>','<head><base href="https://lavaggiodivani.net/">');
+  document.open();document.write(html);document.close();
+})().catch(e=>{document.body.innerHTML='<div class="msg">Preview non caricata. Apri la PR e controlliamo da lì.</div>'});
+</script>
+</body>
+</html>
