@@ -1,0 +1,105 @@
+/* Reusable editorial guide styles
+   Extracted from the approved guide layout used by
+   /guides/pulizia-tessuti-delicati-pregio-sardegna/
+   Base site styles remain in /assets/css/cleaning-landing.css. */
+
+:root{
+  --guide-navy:#071827;
+  --guide-blue:#163c5c;
+  --guide-gold:#b88b36;
+  --guide-cream:#f8f4ec;
+  --guide-teal:#176b68;
+  --guide-line:rgba(7,24,39,.13);
+  --guide-muted:#5c6874;
+}
+
+.guide-hero .hero-copy{max-width:780px}
+.guide-hero h1{font-size:clamp(2.05rem,2.8vw,2.5rem)!important;line-height:1.08;letter-spacing:-.035em}
+.guide-hero .hero-lead{max-width:760px}
+.article-meta{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin:1rem 0 0;color:rgba(255,255,255,.72);font-size:.84rem}
+
+/* Table of contents */
+.mobile-toc{display:none;margin:1rem auto;padding:.9rem;background:var(--guide-cream);border:1px solid var(--guide-line);border-radius:14px}
+.mobile-toc strong{display:block;color:var(--guide-navy);font-size:.9rem}
+.mobile-toc-primary,.mobile-toc-links{display:flex;flex-wrap:wrap;gap:.42rem;margin-top:.62rem}
+.mobile-toc a{display:inline-flex;padding:.48rem .62rem;color:var(--guide-blue);background:#fff;border:1px solid var(--guide-line);border-radius:999px;font-size:.79rem;font-weight:800;text-decoration:none}
+.mobile-toc details{margin-top:.65rem}
+.mobile-toc summary{color:var(--guide-navy);font-size:.82rem;font-weight:850;cursor:pointer}
+
+.guide-layout{display:grid;grid-template-columns:260px minmax(0,780px);justify-content:center;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.desktop-toc{position:sticky;top:96px;padding:1rem;background:var(--guide-cream);border:1px solid var(--guide-line);border-radius:16px}
+.desktop-toc h2{margin:0 0 .7rem;color:var(--guide-navy);font-family:inherit;font-size:.95rem}
+.desktop-toc ol{display:grid;gap:.34rem;margin:0;padding:0;list-style:none}
+.desktop-toc a{display:block;padding:.22rem .34rem;color:var(--guide-blue);border-left:3px solid transparent;font-size:.82rem;text-decoration:none}
+.desktop-toc a:hover{border-left-color:var(--guide-gold)}
+
+/* Article body */
+.guide-article{font-size:1.03rem}
+.guide-article h2{scroll-margin-top:110px;margin:3.2rem 0 1rem;color:var(--guide-navy);font-size:clamp(2rem,4vw,3.35rem)}
+.guide-article h3{scroll-margin-top:110px;color:var(--guide-blue)}
+
+.answer-box{margin:0 0 2rem;padding:1.35rem;background:linear-gradient(135deg,#eef7f5,#fff);border:1px solid rgba(23,107,104,.2);border-left:5px solid var(--guide-teal);border-radius:0 16px 16px 0}
+.answer-box .label{display:block;margin-bottom:.35rem;color:var(--guide-teal);font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.answer-box h2,.answer-box h3{margin:.1rem 0 .55rem;font-size:1.35rem}
+.answer-box p{margin:0}
+
+.fact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.2rem 0 2rem}
+.fact{padding:1rem;background:#fff;border:1px solid var(--guide-line);border-radius:14px}
+.fact strong{display:block;color:var(--guide-navy)}
+.fact span{display:block;margin-top:.25rem;color:var(--guide-muted);font-size:.86rem}
+
+.table-wrap{overflow-x:auto;margin:1.2rem 0 2rem;border:1px solid var(--guide-line);border-radius:14px}
+.guide-table{width:100%;border-collapse:collapse;background:#fff;font-size:.88rem}
+.guide-table th,.guide-table td{padding:.85rem;vertical-align:top;text-align:left;border-bottom:1px solid var(--guide-line)}
+.guide-table th{color:var(--guide-navy);background:var(--guide-cream)}
+.guide-table tr:last-child td{border-bottom:0}
+
+.risk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0 2rem}
+.risk-card{padding:1rem;background:var(--guide-cream);border:1px solid var(--guide-line);border-radius:14px}
+.risk-card h3{margin:0 0 .45rem;font-size:1.05rem}
+.risk-card p{margin:0;color:var(--guide-muted);font-size:.9rem}
+
+.method-steps{display:grid;gap:.7rem;margin:1rem 0 2rem;counter-reset:guide-step}
+.method-step{position:relative;padding:1rem 1rem 1rem 3.5rem;background:#fff;border:1px solid var(--guide-line);border-radius:14px;counter-increment:guide-step}
+.method-step::before{content:counter(guide-step);position:absolute;left:1rem;top:1rem;display:grid;width:1.8rem;height:1.8rem;place-items:center;color:var(--guide-navy);background:#e8d6ae;border-radius:50%;font-weight:900}
+.method-step strong{display:block;color:var(--guide-navy)}
+.method-step span{display:block;margin-top:.2rem;color:var(--guide-muted);font-size:.9rem}
+
+.context-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1rem 0 2rem}
+.context-card{padding:1.1rem;color:#fff;background:linear-gradient(145deg,#071827,#163c5c);border-radius:16px}
+.context-card h3{margin:0 0 .5rem;color:#fff}
+.context-card p{margin:0;color:rgba(255,255,255,.75);font-size:.9rem}
+.context-card a{color:#f0d69e;font-weight:800}
+
+.sources{display:grid;gap:.7rem;margin:1rem 0 2rem}
+.source{padding:1rem;background:#fff;border:1px solid var(--guide-line);border-radius:12px}
+.source a{color:var(--guide-blue);font-weight:850}
+.source p{margin:.25rem 0 0;color:var(--guide-muted);font-size:.86rem}
+
+.author-card{display:grid;grid-template-columns:auto 1fr;gap:1rem;margin:2rem 0;padding:1.2rem;background:var(--guide-navy);border-radius:18px}
+.author-mark{display:grid;width:58px;height:58px;place-items:center;color:var(--guide-navy);background:#e8d6ae;border-radius:50%;font-weight:900}
+.author-card h3{margin:0;color:#fff}
+.author-card p{margin:.35rem 0 0;color:rgba(255,255,255,.72);font-size:.9rem}
+
+.related-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin:1rem 0 2rem}
+.related-links a{display:block;padding:1rem;color:var(--guide-blue);background:var(--guide-cream);border:1px solid var(--guide-line);border-radius:12px;font-weight:800;text-decoration:none}
+
+.guide-cta{margin:2rem 0;padding:1.3rem;color:#fff;background:linear-gradient(135deg,#071827,#163c5c);border-radius:18px}
+.guide-cta p{margin:0 0 1rem;color:rgba(255,255,255,.8)}
+
+@media(max-width:940px){
+  .guide-layout{grid-template-columns:1fr}
+  .desktop-toc{display:none}
+  .mobile-toc{display:block}
+  .fact-grid,.context-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:650px){
+  .fact-grid,.risk-grid,.context-grid,.related-links{grid-template-columns:1fr}
+  .guide-hero h1{font-size:clamp(1.95rem,7vw,2.25rem)!important}
+  .article-meta{font-size:.78rem}
+  .guide-article{font-size:1rem}
+  .guide-table{font-size:.82rem}
+  .author-card{grid-template-columns:1fr}
+  .author-mark{width:50px;height:50px}
+}
