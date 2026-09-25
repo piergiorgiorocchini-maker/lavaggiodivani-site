@@ -115,3 +115,17 @@
   .core-layout .final-cta-box{padding:32px 23px;border-radius:30px}
   .core-layout .site-footer{padding-bottom:58px}
 }
+
+/* Unified vertical rhythm for core pages */
+.core-layout{
+  --section-half-space:clamp(36px,4vw,48px);
+}
+.core-layout main > section.section-pad:not(.hero):not(.final-cta){
+  padding-top:var(--section-half-space);
+  padding-bottom:var(--section-half-space);
+}
+@media(max-width:720px){
+  .core-layout{
+    --section-half-space:clamp(28px,8vw,36px);
+  }
+}
