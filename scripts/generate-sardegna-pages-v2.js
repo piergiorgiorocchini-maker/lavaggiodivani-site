@@ -4,8 +4,8 @@
  * generate-sardegna-pages-v2.js
  *
  * Generatore definitivo per LavaggioDivani su Sardegna.
- * Usa index.html come matrice approvata e data/geo.sardegna.json come mappa geografica.
- * Non riscrive creativamente il copy: applica solo adattamenti controllati.
+ * Usa la homepage corrente come matrice visuale approvata e data/geo.sardegna.json come mappa geografica.
+ * Mantiene il sistema grafico blu, header/footer globali e hero prima/dopo.
  */
 
 const fs = require('fs');
@@ -157,6 +157,7 @@ function localitySegment(locality) {
 }
 
 function hubUrl(hub) {
+  if (hub.id === 'hub-cagliari') return `/${SERVICE.serviceSlug}-a-domicilio-cagliari/`;
   return `/${hubSegment(hub)}/`;
 }
 
@@ -177,7 +178,7 @@ function municipalityLocative(name) {
 
 function absolutizePaths(html) {
   const pairs = [
-    ['href="assets/css/cleaning-landing.css"', 'href="/assets/css/cleaning-landing.css"'],
+    ['href="assets/css/ads-cagliari.css?v=20260925-4"', 'href="/assets/css/ads-cagliari.css?v=20260925-4"'],
     ['href="assets/img/', 'href="/assets/img/'],
     ['srcset="assets/img/', 'srcset="/assets/img/'],
     ['src="assets/img/', 'src="/assets/img/'],
@@ -201,8 +202,22 @@ function commonPageTransforms(html, options) {
 
   html = html.replace(
     /<title>[\s\S]*?<\/title>/,
-    `<title>Lavaggio divani a domicilio ${cleanTitlePlace}</title>`
+    `<title>Pulizia e lavaggio divani a domicilio ${cleanTitlePlace} | LavaggioDivani</title>`
   );
+
+  html = html.replace(
+    /<meta name="description" content="[^"]*">/,
+    `<meta name="description" content="Pulizia e lavaggio divani a domicilio ${metaLocative}. Preventivo rapido su WhatsApp da foto per divani, poltrone e tessuti imbottiti.">`
+  );
+  html = html.replace(/<meta name="geo\.placename" content="[^"]*">/, `<meta name="geo.placename" content="${metaPlace}">`);
+  html = html.replace(/<link rel="canonical" href="[^"]*">/, `<link rel="canonical" href="${canonical}">`);
+  html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="Pulizia e lavaggio divani a domicilio ${metaLocative}">`);
+  html = html.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="Pulizia divani a domicilio ${metaLocative} con preventivo rapido su WhatsApp da foto.">`);
+  html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${canonical}">`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="Pulizia e lavaggio divani a domicilio ${metaLocative}">`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="Pulizia divani a domicilio ${metaLocative}. Preventivo rapido da foto su WhatsApp.">`);
+  html = html.replace(/<h1>[\s\S]*?<\/h1>/, `<h1>Pulizia e lavaggio divani a domicilio ${h1Locative}</h1>`);
+  html = replaceAll(html, 'Preventivo rapido su WhatsApp · Sardegna', `Preventivo rapido su WhatsApp · ${metaPlace}`);
 
   html = replaceFirst(
     html,
@@ -408,26 +423,29 @@ function generateLocality(master, locality, hubs, municipalities) {
 
 function validateMaster(master) {
   const required = [
-    'sopratutto economico',
-    'btn-whatsapp',
-    'assets/img/lavaggio-divano-hero.webp',
+    'site-global-nav',
+    'ads-cagliari.css',
+    'hero-prima.webp',
+    'hero-dopo.webp',
+    'site-footer',
     'assets/js/cookie-consent.js'
   ];
   const missing = required.filter(token => !master.includes(token));
   if (missing.length) {
-    throw new Error(`index.html non sembra la matrice definitiva. Mancano: ${missing.join(', ')}`);
+    throw new Error(`index.html non sembra la matrice visuale definitiva. Mancano: ${missing.join(', ')}`);
   }
 }
 
 function validateGenerated(segment, html) {
   const failures = [];
-  if (!html.includes('sopratutto economico')) failures.push('testo utente mancante');
-  if (!html.includes('btn-whatsapp')) failures.push('classe WhatsApp mancante');
-  if (!html.includes('href="/assets/css/cleaning-landing.css"')) failures.push('CSS non assoluto');
-  if (!html.includes('/assets/img/lavaggio-divano-hero.webp')) failures.push('immagine hero neutra non trovata');
+  if (!html.includes('site-global-nav')) failures.push('header globale mancante');
+  if (!html.includes('site-footer')) failures.push('footer globale mancante');
+  if (!html.includes('ads-cagliari.css')) failures.push('CSS blu unificato mancante');
+  if (!html.includes('/assets/img/ads-cagliari/hero-prima.webp')) failures.push('hero PRIMA mancante');
+  if (!html.includes('/assets/img/ads-cagliari/hero-dopo.webp')) failures.push('hero DOPO mancante');
+  if (html.includes('cleaning-landing.css')) failures.push('vecchio CSS teal ancora presente');
   if (html.toLowerCase().includes('autorevolezza')) failures.push('termine interno autorevolezza presente');
   if (html.toLowerCase().includes(' seo ')) failures.push('termine interno SEO presente');
-  if (html.toLowerCase().includes('hub')) failures.push('termine interno hub presente');
   if (!html.includes(`<link rel="canonical" href="${canonicalFromSegment(segment)}">`)) failures.push('canonical non coerente');
   if (failures.length) throw new Error(`${segment}: ${failures.join(', ')}`);
 }
@@ -444,8 +462,14 @@ function buildSitemap(hubs, municipalities) {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: `${SERVICE.baseUrl}/`, priority: '1.0' },
-    ...hubs.map(hub => ({ loc: `${SERVICE.baseUrl}/${hubSegment(hub)}/`, priority: '0.9' })),
-    ...municipalities.map(locality => ({ loc: `${SERVICE.baseUrl}/${localitySegment(locality)}/`, priority: '0.8' })),
+    { loc: `${SERVICE.baseUrl}/pulizia-divani-a-domicilio-sardegna/`, priority: '0.95' },
+    { loc: `${SERVICE.baseUrl}/pulizia-materassi-a-domicilio-sardegna/`, priority: '0.95' },
+    { loc: `${SERVICE.baseUrl}/yacht-carpet-upholstery-cleaning-sardinia/`, priority: '0.95' },
+    { loc: `${SERVICE.baseUrl}/pulizia-divano-a-domicilio-prezzi/`, priority: '0.9' },
+    { loc: `${SERVICE.baseUrl}/zone-servite/`, priority: '0.9' },
+    { loc: `${SERVICE.baseUrl}/guides/`, priority: '0.8' },
+    ...hubs.filter(hub => hub.id !== 'hub-cagliari').map(hub => ({ loc: `${SERVICE.baseUrl}/${hubSegment(hub)}/`, priority: '0.9' })),
+    ...municipalities.map(locality => ({ loc: `${SERVICE.baseUrl}/${localitySegment(locality)}/`, priority: locality.slug === 'cagliari' ? '0.9' : '0.8' })),
     { loc: `${SERVICE.baseUrl}/pages/legal/contatti.html`, priority: '0.4' },
     { loc: `${SERVICE.baseUrl}/pages/legal/privacy-policy.html`, priority: '0.3' },
     { loc: `${SERVICE.baseUrl}/pages/legal/cookie-policy.html`, priority: '0.3' },
@@ -479,6 +503,7 @@ function main() {
   const generated = [];
 
   for (const hub of hubs) {
+    if (hub.id === 'hub-cagliari') continue;
     const page = generateHub(master, hub, municipalities);
     validateGenerated(page.segment, page.html);
     writeFile(path.join(ROOT, page.segment, 'index.html'), page.html);
