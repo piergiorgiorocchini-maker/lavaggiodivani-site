@@ -238,7 +238,7 @@ function commonPageTransforms(html, options) {
 
 function originalZoneList() {
   return `          <ul class="zone-list">
-            <li><a href="/lavaggio-divani-cagliari/" style="display:block;color:inherit;text-decoration:none;">Lavaggio divani Cagliari</a></li>
+            <li><a href="/lavaggio-divani-a-domicilio-cagliari/" style="display:block;color:inherit;text-decoration:none;">Lavaggio divani Cagliari</a></li>
             <li><a href="/lavaggio-divani-oristano/" style="display:block;color:inherit;text-decoration:none;">Lavaggio divani Oristano</a></li>
             <li><a href="/lavaggio-divani-nuoro/" style="display:block;color:inherit;text-decoration:none;">Lavaggio divani Nuoro</a></li>
             <li><a href="/lavaggio-divani-sassari/" style="display:block;color:inherit;text-decoration:none;">Lavaggio divani Sassari</a></li>

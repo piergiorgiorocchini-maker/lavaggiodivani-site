@@ -242,7 +242,7 @@
   "templateUsage": {
     "hubTemplate": "templates/hub-territoriale.html",
     "localityTemplate": "templates/pagina-localita.html",
-    "firstHubOutput": "lavaggio-divani-cagliari/index.html",
+    "firstHubOutput": "lavaggio-divani-a-domicilio-cagliari/index.html",
     "firstLocalityOutput": "lavaggio-divani-a-domicilio-selargius/index.html"
   }
 }
