@@ -8,7 +8,7 @@
   --guide-blue:#163c5c;
   --guide-gold:#b88b36;
   --guide-cream:#f8f4ec;
-  --guide-teal:#176b68;
+  --guide-teal:#147dcc;
   --guide-line:rgba(7,24,39,.13);
   --guide-muted:#5c6874;
 }
@@ -38,7 +38,7 @@
 .guide-article h2{scroll-margin-top:110px;margin:3.2rem 0 1rem;color:var(--guide-navy);font-size:clamp(2rem,4vw,3.35rem)}
 .guide-article h3{scroll-margin-top:110px;color:var(--guide-blue)}
 
-.answer-box{margin:0 0 2rem;padding:1.35rem;background:linear-gradient(135deg,#eef7f5,#fff);border:1px solid rgba(23,107,104,.2);border-left:5px solid var(--guide-teal);border-radius:0 16px 16px 0}
+.answer-box{margin:0 0 2rem;padding:1.35rem;background:linear-gradient(135deg,#edf7fd,#fff);border:1px solid rgba(20,125,204,.18);border-left:5px solid var(--guide-teal);border-radius:0 16px 16px 0}
 .answer-box .label{display:block;margin-bottom:.35rem;color:var(--guide-teal);font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
 .answer-box h2,.answer-box h3{margin:.1rem 0 .55rem;font-size:1.35rem}
 .answer-box p{margin:0}
